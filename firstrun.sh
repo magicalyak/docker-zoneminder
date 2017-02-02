@@ -1,6 +1,13 @@
 #!/bin/bash
   
   #Search for config files, if they don't exist, copy the default ones
+  if [ ! -f /config/apache.conf ]; then
+    echo "copying apache.conf"
+    cp /root/apache.conf /config/apache.conf
+  else
+    echo "apache.conf already exists"
+  fi
+
   if [ ! -f /config/zm.conf ]; then
     echo "copying zm.conf"
     cp /root/zm.conf /config/zm.conf

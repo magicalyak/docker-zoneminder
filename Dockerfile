@@ -1,6 +1,6 @@
 FROM phusion/baseimage
 
-MAINTAINER kyis
+MAINTAINER magicalyak
 
 ENV DEBCONF_NONINTERACTIVE_SEEN="true" DEBIAN_FRONTEND="noninteractive" DISABLESSH="true" LC_ALL="C.UTF-8" LANG="en_US.UTF-8" LANGUAGE="en_US.UTF-8"
 ENV SHMEM="50%" TZ="Etc/UTC"
@@ -12,6 +12,7 @@ EXPOSE 80
 
 ADD install.sh /install.sh
 ADD firstrun.sh /etc/my_init.d/firstrun.sh
+ADD cambozola.jar /usr/share/zoneminder/www/cambozola.jar
 
 RUN bash /install.sh
 
