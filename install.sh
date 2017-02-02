@@ -18,8 +18,8 @@ rm /etc/mysql/my.cnf && \
 cp /etc/mysql/mariadb.conf.d/50-server.cnf /etc/mysql/my.cnf && \
 
 add-apt-repository -y ppa:iconnor/zoneminder && \
-apt-get update && \
-apt-get install -y zoneminder=1.30.0* php-gd && \
+apt-get update --allow-unauthenticated && \
+apt-get install --allow-unauthenticated -y zoneminder=1.30.0* php-gd && \
 chmod 740 /etc/zm/zm.conf && \
 chown root:www-data /etc/zm/zm.conf && \
 adduser www-data video && \
@@ -51,7 +51,7 @@ mysql -sfu root < "mysql_secure_installation.sql" && \
 service mysql restart && \
 service apache2 restart && \
 service zoneminder restart && \
-apt-get install -y wget usbutils libvlc-dev libvlccore-dev vlc usbutils && \
+apt-get install --allow-unauthenticated -y wget usbutils libvlc-dev libvlccore-dev vlc usbutils && \
 apt-get clean && \
 
 chmod +x /etc/my_init.d/firstrun.sh && \
