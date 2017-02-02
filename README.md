@@ -4,7 +4,7 @@
 
 On other platforms, you can run this docker container with the following command:
 
-`docker run -d --name="Zoneminder-1.30" --privileged=true -v /path/to/config:/config:rw -v /etc/localtime:/etc/localtime:ro -p 80:80 magicalyak/zoneminder-1.30`
+`docker run -d --name="Zoneminder-1.30" --privileged=true -v /path/to/config:/config:rw -v /etc/localtime:/etc/localtime:ro -p 80:80 magicalyak/docker-zoneminder`
 
 #### Tips and Setup Instructions:
 - NOTE: These are from the 1.29 version, I haven't updated them yet
