@@ -3,7 +3,10 @@
 apt-get update && \
 apt-get upgrade -y -o Dpkg::Options::="--force-confold" && \
 apt-get dist-upgrade -y && \
-apt-get install -y mariadb-server && \
+apt-get install -y \
+software-properties-common \
+python-software-properties \
+mariadb-server && \
 cd /root && \
 echo "UPDATE mysql.user SET Password=PASSWORD('zoneminder') WHERE User='root';
 DELETE FROM mysql.user WHERE User='';
@@ -16,10 +19,27 @@ FLUSH PRIVILEGES;
 
 rm /etc/mysql/my.cnf && \
 cp /etc/mysql/mariadb.conf.d/50-server.cnf /etc/mysql/my.cnf && \
+service apache2 restart && \
+service mysql restart && \
 
 add-apt-repository -y ppa:iconnor/zoneminder && \
 apt-get update && \
-apt-get install -y zoneminder=1.30.0* php-gd && \
+apt-get install -y \
+wget \
+apache2 \
+php5 \
+php5-gd \
+libapache2-mod-php5 \
+usbutils \
+vlc \
+libvlc-dev \
+libvlccore-dev && \
+apt-get install -y \
+zoneminder=1.30.0* \
+libvlc-dev \
+libvlccore-dev \
+vlc \
+php-gd && \
 chmod 740 /etc/zm/zm.conf && \
 chown root:www-data /etc/zm/zm.conf && \
 adduser www-data video && \
