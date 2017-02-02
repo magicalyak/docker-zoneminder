@@ -10,9 +10,9 @@ VOLUME ["/var/cache/zoneminder"]
 
 EXPOSE 80
 
-ADD install.sh /install.sh
-ADD firstrun.sh /etc/my_init.d/firstrun.sh
-ADD cambozola.jar /usr/share/zoneminder/www/cambozola.jar
+COPY install.sh /install.sh
+COPY firstrun.sh /etc/my_init.d/firstrun.sh
+COPY cambozola.jar /usr/share/zoneminder/www/cambozola.jar
 
 RUN bash /install.sh
 
