@@ -12,7 +12,6 @@ EXPOSE 80
 
 ADD install.sh /install.sh
 ADD firstrun.sh /etc/my_init.d/firstrun.sh
-ADD cambozola.jar /usr/share/zoneminder/www/cambozola.jar
 
 RUN bash /install.sh
 
